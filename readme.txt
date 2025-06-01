@@ -5,7 +5,7 @@ Donate link:  https://www.zeffy.com/en-US/donation-form/your-donation-makes-a-di
 Tags: thank you, thank you page, order confirmation, checkout, social share
 Requires at least: 4.6
 Tested up to: 6.7.2
-Version: 1.1.3
+Version: 1.1.4
 Stable tag: 1.1.3
 Requires PHP: 7.4.33
 License: GPLv3 or later license and included
@@ -77,6 +77,9 @@ Please click the following link to check the current stability of this plugin:
 None to report as of the release version
 
 == Changelog ==
+
+1.1.4 06/01/25
+- Bug Fix: The nag bar for feedback Functions.
 
 1.1.3 03/16/25
 - Updated donation links

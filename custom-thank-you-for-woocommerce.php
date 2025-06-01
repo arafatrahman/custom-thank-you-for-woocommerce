@@ -7,7 +7,7 @@
  * Plugin Name:          Custom Thank You for WooCommerce
  * Plugin URI:           http://wordpress.org/plugins/custom-thank-you-for-woocommerce
  * Description:          A WooCommerce extension that allows you to define your own custom thank you page after placing order.
- * Version:              1.1.3
+ * Version:              1.1.4
  * Author:               Artios Media
  * Author URI:           http://www.artiosmedia.com
  * Developer:            Arafat Rahman

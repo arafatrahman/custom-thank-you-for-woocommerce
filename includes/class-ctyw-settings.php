@@ -48,7 +48,7 @@ class CTYW_Settings {
       /**
 		 * Plugin review admin notice
 		 * 
-		 * @since    1.0.0
+		 * @since    1.1.4
 		 */
 		public function ctyw_admin_notice() {
 			$last_dismissed = get_option("ctyw_notice_dismiss");
@@ -65,7 +65,7 @@ class CTYW_Settings {
       /**
 		 * Plugin review admin notice ajax handler
 		 * 
-		 * @since    1.0.0
+		 * @since    1.1.4
 		 */
 		public function ctyw_dismiss_notice() {
 			if (current_user_can("manage_options")) {
