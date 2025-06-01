@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Thank You for WooCommerce\n"
+"POT-Creation-Date: 2020-02-25 14:29+0530\n"
+"PO-Revision-Date: 2022-02-01 15:50-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: custom-thank-you-for-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: custom-thank-you-for-woocommerce.php:91
+msgid "Donation for Homeless"
+msgstr "Donación para personas sin hogar"
+
+#: custom-thank-you-for-woocommerce.php:102
+#, php-format
+msgid "More information about %s"
+msgstr "Más información sobre %s"
+
+#: custom-thank-you-for-woocommerce.php:102
+msgid "View Details"
+msgstr "Ver detalles"
+
+#: custom-thank-you-for-woocommerce.php:200
+msgid ""
+"Custom Thank You for WooCommerce Add-on requires WooCommerce plugin to be "
+"installed and activated."
+msgstr ""
+"Custom Thank You for WooCommerce Add-on requiere que el plugin WooCommerce "
+"esté instalado y activado."
+
+#: custom-thank-you-for-woocommerce.php:217
+msgid "Settings"
+msgstr "Configuración"
+
+#: includes/class-ctyw-settings.php:52
+msgid "Custom Thank You"
+msgstr "Agradecimiento personalizado"
+
+#: includes/class-ctyw-settings.php:54
+msgid ""
+"This option allows you to define a specific custom thank you page for your "
+"customers."
+msgstr ""
+"Esta opción le permite definir una página de agradecimiento personalizada "
+"específica para sus clientes."
+
+#: includes/class-ctyw-settings.php:58
+msgid "Select the Thank You Page"
+msgstr "Seleccione la página Denciones"
+
+#: includes/class-ctyw-settings.php:60
+msgid "Select the page which you want to use as Custom Thank You Page"
+msgstr ""
+"Seleccione la página que desea utilizar como página de agradecimiento "
+"personalizada"
+
+#: includes/class-ctyw-settings.php:69
+msgid "Enable Social Box"
+msgstr "Habilitar social Box"
+
+#: includes/class-ctyw-settings.php:70
+msgid "Check this option to show the Facebook share tab."
+msgstr "Marca esta opción para mostrar la pestaña Compartir de Facebook."
+
+#: includes/class-ctyw-settings.php:78
+msgid "Check this option to show the Twitter share tab."
+msgstr "Marque esta opción para mostrar la pestaña Compartir Twitter."
+
+#: includes/class-ctyw-settings.php:88
+msgid "Check this option to show the Pinterest share tab."
+msgstr "Marca esta opción para mostrar la pestaña Compartir Pinterest."
+
+#: includes/class-ctyw-settings.php:121
+msgid "Thank you. Your order has been received."
+msgstr "Gracias. Tu orden ha sido recibida."
+
+#: includes/class-ctyw-settings.php:178
+msgid "Share in Email"
+msgstr "Compartir por correo electrónico"
+
+#: includes/class-ctyw-settings.php:183
+msgid "Share On Facebook"
+msgstr "Compartir en Facebook"
+
+#: includes/class-ctyw-settings.php:191
+msgid "Tweet This Purchase"
+msgstr "Tuitea esta compra"
+
+#: includes/class-ctyw-settings.php:199
+msgid "Pin This Purchase"
+msgstr "Pin esta compra"
+
+#: includes/class-ctyw-settings.php:215 includes/class-ctyw-settings.php:285
+#: includes/class-ctyw-settings.php:356 includes/class-ctyw-settings.php:426
+msgid ""
+"Click either the left or right arrows to select the purchased item you want "
+"to share"
+msgstr ""
+"Haga clic en las flechas izquierda o derecha para seleccionar el artículo "
+"comprado que desea compartir"
+
+#: includes/class-ctyw-settings.php:247 includes/class-ctyw-settings.php:315
+#: includes/class-ctyw-settings.php:386 includes/class-ctyw-settings.php:453
+msgid "I've just purchased: "
+msgstr "Acabo de comprar:"
+
+#: includes/class-ctyw-settings.php:247 includes/class-ctyw-settings.php:315
+#: includes/class-ctyw-settings.php:386 includes/class-ctyw-settings.php:453
+msgid "I have purchased: "
+msgstr "He comprado:"
+
+#: includes/class-ctyw-settings.php:261 includes/class-ctyw-settings.php:329
+msgid "Share"
+msgstr "Compartir"
+
+#: includes/class-ctyw-settings.php:399
+msgid "characters left"
+msgstr "caracteres Izquierda"
+
+#: includes/class-ctyw-settings.php:401
+msgid "Tweet"
+msgstr "Tweet"
+
+#: includes/class-ctyw-settings.php:467
+msgid "Pin it"
+msgstr "Pin it"
+
+#: includes/class-ctyw-settings.php:587
+msgid "Thank You URL:"
+msgstr "URL de agradecimiento:"
+
+#: includes/class-ctyw-settings.php:590
+msgid "Enter Valid URL for Custom Thank You Page."
+msgstr "Ingrese la URL válida para la página de agradecimiento personalizada."
+
+#: includes/class-ctyw-settings.php:625
+msgid ""
+"How do you like <strong>Custom Thank You For WooCommerce</strong>? Your "
+"feedback assures the continued maintenance of this plugin!"
+msgstr ""
+"¿Qué te parece <strong>Custom Thank You For WooCommerce</strong>? Sus "
+"comentarios aseguran el mantenimiento continuo de este plugin!"
+
+#: includes/class-ctyw-settings.php:625
+msgid "Leave Feedback"
+msgstr "Dejar Comentarios"
+
+#: includes/class-ctyw-utility.php:62
+msgid "There's something wrong with your code..."
+msgstr "Hay algo mal con su código ..."
+
+#. Plugin Name of the plugin/theme
+msgid "Custom Thank You for WooCommerce"
+msgstr "Agradecimiento personalizado por WooCommerce"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/custom-thank-you-for-woocommerce"
+msgstr "http://wordpress.org/plugins/custom-thank-you-for-woocommerce"
+
+#. Description of the plugin/theme
+msgid ""
+"A WooCommerce extension that allows you to define your own custom thank you "
+"page after placing order."
+msgstr ""
+"Una extensión de WooCommerce que te permite definir tu propia página de "
+"agradecimiento personalizada después de realizar el pedido."
+
+#. Author of the plugin/theme
+msgid "Artios Media"
+msgstr "Artios Media"
+
+#. Author URI of the plugin/theme
+msgid "http://www.artiosmedia.com"
+msgstr "http://www.artiosmedia.com"
+
+
+#: includes/class-ctyw-settings.php:630
+msgid ""
+"How do you like <strong>Hide Cart Functions</strong>? Your feedback assures "
+"the continued maintenance of this plugin!"
+msgstr ""
+"¿Qué te parece <strong>Hide Cart Functions</strong>? Sus comentarios aseguran "
+"el mantenimiento continuo de este plugin!"
+
+#: includes/class-ctyw-settings.php:631
+msgid "Leave Feedback"
+msgstr "Dejar Comentarios"
