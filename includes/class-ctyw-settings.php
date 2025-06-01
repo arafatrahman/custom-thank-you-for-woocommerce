@@ -39,61 +39,46 @@ class CTYW_Settings {
       //save the custom page setting in the simgale product.
       add_action('woocommerce_process_product_meta', array($this, 'wc_custom_thanks_redirect_save_settings'));
 
-    //  add_action("admin_notices", array($this, "admin_notice"));
-    //  add_action("wp_ajax_ctyw_notice_dismiss", array($this, "dismiss_notice"));   
-      
-      add_action('admin_notices', array($this, 'ctyw_admin_notice'));
-		add_action('wp_ajax_ctyw_dismiss_notice', array($this, 'ctyw_dismiss_notice'));
-		add_action('wp_ajax_ctyw_review_clicked', array($this,'ctyw_review_clicked'));
-      
+      add_action("admin_notices", [$this, "ctyw_admin_notice"]);
+		//plugin review admin notice ajax handler
+		add_action("wp_ajax_ctyw_dismiss_notice", [$this, "ctyw_dismiss_notice"]);
+
    }
 
+      /**
+		 * Plugin review admin notice
+		 * 
+		 * @since    1.0.0
+		 */
+		public function ctyw_admin_notice() {
+			$last_dismissed = get_option("ctyw_notice_dismiss");
+			if($last_dismissed == '1' || $last_dismissed === ''){ return;}
+			$current_date = date('Y-m-d');
+			$last_dismissed_date = substr($last_dismissed, 0, 10);
+			if (!empty($last_dismissed) && $current_date >= $last_dismissed_date || empty($last_dismissed)) {
+				echo '<div class="notice notice-info is-dismissible" id="ctyw_notice">
+				<p>How do you like <strong>Custom Thank You for WooCommerce</strong>? Your feedback assures the continued maintenance of this plugin! <a class="button button-primary ctyw-feedback" href="https://wordpress.org/plugins/custom-thank-you-for-woocommerce/#reviews" target="_blank">Leave Feedback</a></p>
+				</div>';
+			}
+		}
 
-   public function ctyw_admin_notice() {
-		
+      /**
+		 * Plugin review admin notice ajax handler
+		 * 
+		 * @since    1.0.0
+		 */
+		public function ctyw_dismiss_notice() {
+			if (current_user_can("manage_options")) {
+				if (!empty($_POST["ctyw_dismissed_final"])) {
+					update_option("ctyw_notice_dismiss", '1');
+				} else {
+					update_option("ctyw_notice_dismiss", date('Y-m-d', strtotime('+30 days')));
+				}
+				wp_send_json(array("status" => true));
+			}
+		}
 
-      if (!is_plugin_active('custom-thank-you-for-woocommerce/custom-thank-you-for-woocommerce.php')) {
-         return;
-      }
    
-      $user_id = get_current_user_id();
-      $ctyw_dismissed = get_user_meta($user_id, 'ctyw_notice_dismissed', true);
-      $ctyw_clicked = get_user_meta($user_id, 'ctyw_notice_clicked', true);
-      $last_ctyw_time = get_user_meta($user_id, 'ctyw_notice_last_time', true);
-      $current_time = time();
-      $thirty_days = 30 * DAY_IN_SECONDS;
-   
-      
-      
-      // If the review was clicked
-      if ($ctyw_clicked) {
-         return;
-      }
-
-      // If 30 days have NOT passed, return early and do NOT show the notice
-      if ($last_ctyw_time && ($current_time - $last_nag_time) < $thirty_days) {
-         return;
-      }
-
-      echo '<div class="notice notice-info is-dismissible ctyw_notice" id="ctyw_review_link">
-        <p>' . __('How do you like <strong>Hide Cart Functions</strong>? Your feedback assures the continued maintenance of this plugin!', 'ctyw') . ' <a id="ctyw-feedback-done" class="button button-primary" href="https://wordpress.org/plugins/custom-thank-you-for-woocommerce/#reviews" target="_blank">' . __('Leave Feedback', 'ctyw') . '</a></p>
-        </div>';
-   }
-   
-
-   public function ctyw_dismiss_notice() {
-      $user_id = get_current_user_id();
-      update_user_meta($user_id, 'ctyw_notice_dismissed', 1);
-      update_user_meta($user_id, 'ctyw_notice_last_time', time());
-      wp_die();
-   }
-
-   public function ctyw_review_clicked() {
-
-      $user_id = get_current_user_id();
-      update_user_meta($user_id, 'ctyw_notice_clicked', 1);
-      wp_die();
-   }
 
 
 
@@ -858,34 +843,6 @@ class CTYW_Settings {
          }
       }
       return;
-   }
-
-   public function admin_notice() {
-      $last_dismissed_notice = get_option("ctyw_notice_dismiss");
-
-      if ( $last_dismissed_notice && current_time('timestamp') >= strtotime($last_dismissed_notice)) {
-         $ajax_nonce = wp_create_nonce( "ctyw_ajax_nonce" );
-         $notice_text = '<div class="notice notice-info is-dismissible" id="custom_thankyou_woo_notice">';
-         $notice_text .= '<p>' . __( 'How do you like <strong>Custom Thank You For WooCommerce</strong>? Your feedback assures the continued maintenance of this plugin!', 'ctyw' ) . '&nbsp;<a class="button button-primary" href="' . esc_url('http://wordpress.org/plugins/custom-thank-you-for-woocommerce').'" target="_blank">' . esc_html__('Leave Feedback','ctyw') . '</a></p>';
-         $notice_text .= '<input type="hidden" name="ctyw_ajax_nonce" id="ctyw_ajax_nonce" value="' . $ajax_nonce . '" />';
-         $notice_text .= '</div>';
-         
-         echo $notice_text;
-      }
-   }
-
-   public function dismiss_notice() {
-      // check nonce
-      check_ajax_referer( 'ctyw_ajax_nonce', 'security' );
-      // sanitize incoming data
-      $decision = intval( $_POST["dismissed_final"] );
-      if ( $decision == 1 ) {
-         update_option("ctyw_notice_dismiss", null);
-      } else {
-         update_option("ctyw_notice_dismiss", date('Y-m-d', strtotime('+30 days')));
-      }
-
-      wp_send_json(array("status" => true));
    }
 
 }

@@ -1,43 +1,30 @@
-jQuery(document).ready( function() {
-   jQuery(document).on("click", "#custom_thankyou_woo_notice .notice-dismiss", function () {
-      var data = {
-         action: 'ctyw_notice_dismiss',
-         dismissed_final: 0,
-         security: jQuery('#ctyw_ajax_nonce').val()
-      };
+  jQuery(document).ready(function ($) {
+   $(document).on("click", "#ctyw_notice button.notice-dismiss", function (e) {
+      e.preventDefault();
+      ctyw_dismiss_notice(0)
+   })
 
-      jQuery.post(ajaxurl, data, function (response) {
-      });
-   });
+   $(document).on("click", "a.ctyw-feedback", function (e) {
+      e.preventDefault();
+      ctyw_dismiss_notice(1)
+      $("#ctyw_notice").slideUp();
+      window, open($(this).attr("href"), "_blank");
+   })
 
-   jQuery(document).on("click", "#custom_thankyou_woo_notice a", function () {
-      var data = {
-         action: 'ctyw_notice_dismiss',
-         dismissed_final: 1,
-         security: jQuery('#ctyw_ajax_nonce').val()
-      };
+   function ctyw_dismiss_notice(is_final) {
 
-      jQuery.post(ajaxurl, data, function (response) {
-         jQuery("#custom_thankyou_woo_notice").hide();
-      });
-   });  
-   
-   
-   
-}); 
+    $.ajax({
+      url: ajaxurl,
+      data: { action: "ctyw_dismiss_notice", "ctyw_dismissed_final": is_final },
+      type: "POST",
+      dataType: "json",
+      beforeSend: function (res) {
+        console.log("Dismiss Final: ", is_final);
+      },
+      success: function (response) {
+        console.log(response)
+      }
+    })
+  }
 
-jQuery(document).ready(function($) {
-   // When the X button is clicked
-   $('.ctyw_notice').on('click', '.notice-dismiss', function() {
-       jQuery.post(ajaxurl, {
-           action: 'ctyw_dismiss_notice',
-       });
-   });
-
-   // When the review link is clicked
-   $('#ctyw-feedback-done').on('click', function() {
-       jQuery.post(ajaxurl, {
-           action: 'ctyw_review_clicked',
-       });
-   });
-});
+  });
